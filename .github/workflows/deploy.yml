@@ -1,9 +1,9 @@
-name: Deploy React App to AWS S3
+name: Deploy React App
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -37,4 +37,4 @@ jobs:
           aws-region: ap-south-1
 
       - name: Deploy to S3
-        run: aws s3 sync dist/ s3://gha-react-app/ \
+        run: aws s3 sync build/ s3://gha-react-app --delete
